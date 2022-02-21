@@ -15,8 +15,7 @@
  */
 package com.github.nfalco79.jenkins.plugins.bitbucket.strategy;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -26,7 +25,6 @@ import com.cloudbees.jenkins.plugins.bitbucket.BitbucketGitSCMRevision;
 import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSource;
 import com.cloudbees.jenkins.plugins.bitbucket.client.branch.BitbucketCloudAuthor;
 import com.cloudbees.jenkins.plugins.bitbucket.client.branch.BitbucketCloudCommit;
-import com.github.nfalco79.jenkins.plugins.bitbucket.strategy.SkipCommitBuildStrategy;
 
 import jenkins.scm.api.SCMHead;
 
@@ -39,7 +37,7 @@ public class SkipCommitBuildStrategyTest {
         when(head.getName()).thenReturn("feature/release");
 
         BitbucketSCMSource source = new BitbucketSCMSource("amuniz", "test-repos");
-        assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null), equalTo(false));
+        assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null)).isEqualTo(false);
     }
 
     @Test
@@ -50,7 +48,7 @@ public class SkipCommitBuildStrategyTest {
         when(head.getName()).thenReturn("feature/release");
         
         BitbucketSCMSource source = new BitbucketSCMSource("amuniz", "test-repos");
-        assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null), equalTo(false));
+        assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null)).isEqualTo(false);
     }
 
     @Test
@@ -61,7 +59,7 @@ public class SkipCommitBuildStrategyTest {
         when(head.getName()).thenReturn("feature/release");
         
         BitbucketSCMSource source = new BitbucketSCMSource("amuniz", "test-repos");
-        assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null), equalTo(true));
+        assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null)).isEqualTo(true);
     }
 
     @Test
@@ -72,7 +70,7 @@ public class SkipCommitBuildStrategyTest {
         when(head.getName()).thenReturn("feature/release");
         
         BitbucketSCMSource source = new BitbucketSCMSource("amuniz", "test-repos");
-        assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null), equalTo(true));
+        assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null)).isEqualTo(true);
     }
 
     private BitbucketGitSCMRevision buildRevision(SCMHead head) {

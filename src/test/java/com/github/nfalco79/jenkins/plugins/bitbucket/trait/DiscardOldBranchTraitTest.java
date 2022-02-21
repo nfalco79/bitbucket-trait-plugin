@@ -18,7 +18,7 @@ package com.github.nfalco79.jenkins.plugins.bitbucket.trait;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.instanceOf;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -31,7 +31,6 @@ import org.junit.Test;
 import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSourceContext;
 import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSourceRequest;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketBranch;
-import com.github.nfalco79.jenkins.plugins.bitbucket.trait.DiscardOldBranchTrait;
 import com.github.nfalco79.jenkins.plugins.bitbucket.trait.DiscardOldBranchTrait.ExcludeOldSCMHeadBranch;
 
 import jenkins.scm.api.SCMHead;

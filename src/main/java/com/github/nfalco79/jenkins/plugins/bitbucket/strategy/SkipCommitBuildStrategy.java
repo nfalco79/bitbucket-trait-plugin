@@ -17,9 +17,6 @@ package com.github.nfalco79.jenkins.plugins.bitbucket.strategy;
 
 import java.util.regex.Pattern;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.apache.commons.lang.StringUtils;
 import org.kohsuke.stapler.DataBoundConstructor;
 
@@ -28,6 +25,8 @@ import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSource;
 import com.cloudbees.jenkins.plugins.bitbucket.PullRequestSCMRevision;
 import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSource.MercurialRevision;
 
+import edu.umd.cs.findbugs.annotations.CheckForNull;
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.Util;
 import hudson.model.TaskListener;
@@ -43,12 +42,12 @@ public class SkipCommitBuildStrategy extends BranchBuildStrategy {
     /**
      * The message filter.
      */
-    @Nonnull
+    @NonNull
     private String message;
     /**
      * The author filter.
      */
-    @Nonnull
+    @NonNull
     private String author;
 
     @DataBoundConstructor
@@ -109,7 +108,7 @@ public class SkipCommitBuildStrategy extends BranchBuildStrategy {
         return true;
     }
 
-    private boolean matches(@Nonnull String pattern, @CheckForNull String value) {
+    private boolean matches(@NonNull String pattern, @CheckForNull String value) {
         String fixValue = Util.fixEmpty(value);
         return fixValue != null && Pattern.matches(getPattern(pattern), fixValue);
     }

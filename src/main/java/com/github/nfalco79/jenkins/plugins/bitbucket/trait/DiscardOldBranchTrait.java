@@ -19,9 +19,6 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
 
@@ -30,6 +27,8 @@ import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSourceRequest;
 import com.cloudbees.jenkins.plugins.bitbucket.PullRequestSCMHead;
 import com.cloudbees.jenkins.plugins.bitbucket.api.BitbucketBranch;
 
+import edu.umd.cs.findbugs.annotations.CheckForNull;
+import edu.umd.cs.findbugs.annotations.NonNull;
 import hudson.Extension;
 import hudson.util.FormValidation;
 import jenkins.scm.api.SCMHead;
@@ -110,7 +109,7 @@ public class DiscardOldBranchTrait extends SCMSourceTrait {
          * {@inheritDoc}
          */
         @Override
-        public boolean isApplicableToBuilder(@SuppressWarnings("rawtypes") @Nonnull Class<? extends SCMBuilder> builderClass) {
+        public boolean isApplicableToBuilder(@SuppressWarnings("rawtypes") @NonNull Class<? extends SCMBuilder> builderClass) {
             return BitbucketGitSCMBuilder.class.isAssignableFrom(builderClass);
         }
     }
