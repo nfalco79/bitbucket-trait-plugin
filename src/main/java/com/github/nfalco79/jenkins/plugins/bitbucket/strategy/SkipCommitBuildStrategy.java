@@ -23,7 +23,6 @@ import org.kohsuke.stapler.DataBoundConstructor;
 import com.cloudbees.jenkins.plugins.bitbucket.BitbucketGitSCMRevision;
 import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSource;
 import com.cloudbees.jenkins.plugins.bitbucket.PullRequestSCMRevision;
-import com.cloudbees.jenkins.plugins.bitbucket.BitbucketSCMSource.MercurialRevision;
 
 import edu.umd.cs.findbugs.annotations.CheckForNull;
 import edu.umd.cs.findbugs.annotations.NonNull;
@@ -93,10 +92,6 @@ public class SkipCommitBuildStrategy extends BranchBuildStrategy {
         String commitMessage = null;
         if (revision instanceof BitbucketGitSCMRevision) {
             BitbucketGitSCMRevision bbRevision = (BitbucketGitSCMRevision) revision;
-            commitAuthor = Util.fixEmpty(bbRevision.getAuthor());
-            commitMessage = Util.fixEmpty(bbRevision.getMessage());
-        } else if (revision instanceof MercurialRevision) {
-            MercurialRevision bbRevision = (MercurialRevision) revision;
             commitAuthor = Util.fixEmpty(bbRevision.getAuthor());
             commitMessage = Util.fixEmpty(bbRevision.getMessage());
         }
