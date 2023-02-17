@@ -1,5 +1,6 @@
 /*
  * Copyright 2018 Falco Nikolas
+ *
  * Licensed under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
@@ -67,7 +68,7 @@ public class DiscardOldBranchTrait extends SCMSourceTrait {
                     // getName return the PR-<id>, not the branch name
                     branchName = ((PullRequestSCMHead) head).getBranchName();
                 }
-    
+
                 for (BitbucketBranch branch : bbRequest.getBranches()) {
                     if (branch.getName().equals(branchName)) {
                         Calendar c = Calendar.getInstance();
@@ -104,7 +105,7 @@ public class DiscardOldBranchTrait extends SCMSourceTrait {
         public String getDisplayName() {
             return Messages.DiscardOldBranchTrait_displayName();
         }
-        
+
         /**
          * {@inheritDoc}
          */

@@ -1,5 +1,6 @@
 /*
  * Copyright 2018 Falco Nikolas
+ *
  * Licensed under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
@@ -46,7 +47,7 @@ public class SkipCommitBuildStrategyTest {
 
         SCMHead head = mock(SCMHead.class);
         when(head.getName()).thenReturn("feature/release");
-        
+
         BitbucketSCMSource source = new BitbucketSCMSource("amuniz", "test-repos");
         assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null)).isEqualTo(false);
     }
@@ -54,10 +55,10 @@ public class SkipCommitBuildStrategyTest {
     @Test
     public void no_skip_build_event_if_no_matches() throws Exception {
         SkipCommitBuildStrategy strategy = new SkipCommitBuildStrategy("*test*", "*test*");
-        
+
         SCMHead head = mock(SCMHead.class);
         when(head.getName()).thenReturn("feature/release");
-        
+
         BitbucketSCMSource source = new BitbucketSCMSource("amuniz", "test-repos");
         assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null)).isEqualTo(true);
     }
@@ -65,10 +66,10 @@ public class SkipCommitBuildStrategyTest {
     @Test
     public void no_skip_build_event_with_default() throws Exception {
         SkipCommitBuildStrategy strategy = new SkipCommitBuildStrategy(null, null);
-        
+
         SCMHead head = mock(SCMHead.class);
         when(head.getName()).thenReturn("feature/release");
-        
+
         BitbucketSCMSource source = new BitbucketSCMSource("amuniz", "test-repos");
         assertThat(strategy.isAutomaticBuild(source, head, buildRevision(head), null)).isEqualTo(true);
     }
