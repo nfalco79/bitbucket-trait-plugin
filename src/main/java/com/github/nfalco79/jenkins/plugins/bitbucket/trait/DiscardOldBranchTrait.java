@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.jenkinsci.Symbol;
 import org.kohsuke.stapler.DataBoundConstructor;
 import org.kohsuke.stapler.QueryParameter;
 
@@ -91,6 +92,7 @@ public class DiscardOldBranchTrait extends SCMSourceTrait {
     /**
      * Our descriptor.
      */
+    @Symbol("bitbucketDiscardOldBranch")
     @Extension
     public static class DescriptorImpl extends SCMSourceTraitDescriptor {
 
